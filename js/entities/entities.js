@@ -117,13 +117,13 @@ var PipeGenerator = me.Renderable.extend({
   update: function(dt){
     if (this.generate++ % this.pipeFrequency == 0){
       var posY = Number.prototype.random(
-          me.video.getHeight() - 100,
+          me.video.getHeight() - 200,
           200
       );
       var posY2 = posY - me.video.getHeight() - this.pipeHoleSize;
       var pipe1 = new me.pool.pull("pipe", this.posX, posY);
       var pipe2 = new me.pool.pull("pipe", this.posX, posY2);
-      var hitPos = posY - 100;
+      var hitPos = posY - 120;
       var hit = new me.pool.pull("hit", this.posX, hitPos);
       pipe1.renderable.flipY();
       me.game.world.addChild(pipe1, 10);
