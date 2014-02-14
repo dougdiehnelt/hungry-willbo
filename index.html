@@ -110,7 +110,7 @@ var game = {
       return;
     }
 
-    me.audio.init("mp3");
+    // me.audio.init("mp3");
     me.loader.onload = this.loaded.bind(this);
     me.loader.preload(game.resources);
     me.state.change(me.state.LOADING);
@@ -409,7 +409,7 @@ var BackgroundLayer = me.ImageLayer.extend({
 });
 game.TitleScreen = me.ScreenObject.extend({
   onResetEvent: function() {
-    me.audio.playTrack('intro');
+    // me.audio.playTrack('intro');
     me.game.world.addChild(new BackgroundLayer('bg', 1));
 
     me.input.bindKey(me.input.KEY.ENTER, "enter", true);
@@ -420,8 +420,8 @@ game.TitleScreen = me.ScreenObject.extend({
       if (action === "enter") {
         me.state.change(me.state.PLAY);
         // start audio here, so that it unlock audio on iOS
-        me.audio.stopTrack('intro');
-        me.audio.playTrack('theme');
+        // me.audio.stopTrack('intro');
+        // me.audio.playTrack('theme');
       }
     });
 
@@ -512,7 +512,7 @@ game.PlayScreen = me.ScreenObject.extend({
   },
 
   onDestroyEvent: function() {
-    me.audio.stopTrack('theme');
+    // me.audio.stopTrack('theme');
     // free the stored instance
     this.HUD = null;
     this.bird = null;
