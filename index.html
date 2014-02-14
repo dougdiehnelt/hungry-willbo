@@ -123,6 +123,7 @@ var game = {
     me.state.transition("fade", "#000", 100);
 
     me.input.bindKey(me.input.KEY.SPACE, "fly", true);
+    me.input.bindKey(me.input.KEY.ESC, "quit", true);
     me.input.bindTouch(me.input.KEY.SPACE);
 
     me.pool.register("clumsy", BirdEntity);
@@ -179,6 +180,13 @@ var BirdEntity = me.ObjectEntity.extend({
 
   update: function(dt){
     // mechanics
+    if (me.input.isKeyPressed('quit')){
+      try {
+          if (window.self !== window.top) {
+            window.top.killEasterEgg();
+          }
+      } catch (e) { }
+    }
     if (game.data.start) {
       if (me.input.isKeyPressed('fly')){
         this.gravityForce = 0.01;

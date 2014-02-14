@@ -24,6 +24,7 @@ var game = {
     me.state.transition("fade", "#000", 100);
 
     me.input.bindKey(me.input.KEY.SPACE, "fly", true);
+    me.input.bindKey(me.input.KEY.ESC, "quit", true);
     me.input.bindTouch(me.input.KEY.SPACE);
 
     me.pool.register("clumsy", BirdEntity);

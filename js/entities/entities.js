@@ -27,6 +27,13 @@ var BirdEntity = me.ObjectEntity.extend({
 
   update: function(dt){
     // mechanics
+    if (me.input.isKeyPressed('quit')){
+      try {
+          if (window.self !== window.top) {
+            window.top.killEasterEgg();
+          }
+      } catch (e) { }
+    }
     if (game.data.start) {
       if (me.input.isKeyPressed('fly')){
         this.gravityForce = 0.01;
@@ -45,6 +52,7 @@ var BirdEntity = me.ObjectEntity.extend({
         if (this.renderable.angle > this.maxAngleRotationDown)
           this.renderable.angle = this.maxAngleRotationDown;
       }
+
     }
 
     var res = me.game.collide(this);
